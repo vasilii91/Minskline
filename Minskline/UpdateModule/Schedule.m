@@ -192,17 +192,6 @@ static NSInteger PERIOD_OF_TIME_IN_MINUTES = 25;
     return strDate;
 }
 
-//+(NSInteger)getCurrentDayOfWeek
-//{
-//    NSDate *myDateHere = [NSDate date];
-//    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-//    NSDateComponents *dateComponents = [gregorian components:(NSWeekdayCalendarUnit) fromDate:myDateHere];
-//    NSInteger dayOfWeek = [dateComponents weekday];
-//    [gregorian release]; 
-//    
-//    return dayOfWeek;
-//}
-
 +(NSInteger)getCurrentDayOfWeek
 {
     // узнаем текущую дату, чтобы выбрать из базы актуальную инфу, соответствующую

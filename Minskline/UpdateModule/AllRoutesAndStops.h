@@ -20,10 +20,8 @@
 #import "ResultForView.h"
 #import "Constants.h"
 
-@interface AllRoutesAndStops : NSObject {
-    //---NSMutableArray<MRouteWithSchedule>---
-    NSMutableArray *routes;
-    
+@interface AllRoutesAndStops : NSObject
+{
     float totalPercent;
     BOOL isExistNetworkConnection;
     NSInteger counterRouteStopId;
@@ -34,15 +32,6 @@
     @public
     //-----------------------------------------
     // Arrays to getting info from @"http://www.minsktrans.by/city/minsk/routes.txt"
-    NSMutableArray* mutableArray01_RouteNumber;
-    NSMutableArray* mutableArray04_Transport;
-    NSMutableArray* mutableArray05_Operator;
-    NSMutableArray* mutableArray06_ValidityPeriods;
-    NSMutableArray* mutableArray09_RouteType;
-    NSMutableArray* mutableArray11_RouteName;
-    NSMutableArray* mutableArray12_Weekdays;
-    NSMutableArray* mutableArray13_RouteID;
-    NSMutableArray* mutableArrya15_RouteStops;
     
     //-----------------------------------------
     // Arrays to getting info from @"http://www.minsktrans.by/city/minsk/stops.txt"
@@ -55,9 +44,6 @@
     NSMutableArray* mutableArray07_Longitude;
     NSMutableArray* mutableArray08_Latitude;
     NSMutableArray* mutableArray09_Stops;
-    
-    NSMutableArray* allStopURLs;
-    NSMutableArray *stopURLs;
     
     BOOL isUserClickedOnStopButtonWhenUpdate;
     

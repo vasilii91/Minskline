@@ -70,7 +70,7 @@ static NSInteger SPACING_SIZE = 5;
     [progressView setHidden:YES];
     [percentageLabel setHidden:YES];
     [stopButton setHidden:YES];
-    [updateButton setHidden:YES];
+    [updateButton setHidden:NO];
     
     [self addDataToArrayOfDirections:YES];
     

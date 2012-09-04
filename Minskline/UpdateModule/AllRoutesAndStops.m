@@ -81,19 +81,6 @@ static void singleton_remover()
 
 -(void)initializeArrays
 {
-    routes = [[NSMutableArray alloc] init];
-    allStopURLs = [[NSMutableArray alloc] init];
-    
-    mutableArray01_RouteNumber = [[NSMutableArray alloc] init];
-    mutableArray04_Transport = [[NSMutableArray alloc] init];
-    mutableArray05_Operator = [[NSMutableArray alloc] init];
-    mutableArray06_ValidityPeriods = [[NSMutableArray alloc] init];
-    mutableArray09_RouteType = [[NSMutableArray alloc] init];
-    mutableArray11_RouteName = [[NSMutableArray alloc] init];
-    mutableArray12_Weekdays = [[NSMutableArray alloc] init];
-    mutableArray13_RouteID = [[NSMutableArray alloc] init];
-    mutableArrya15_RouteStops = [[NSMutableArray alloc] init];
-    
     mutableArray01_ID = [[NSMutableArray alloc] init];
     mutableArray02_City = [[NSMutableArray alloc] init];
     mutableArray03_Area = [[NSMutableArray alloc] init];
@@ -107,18 +94,6 @@ static void singleton_remover()
 
 -(void)deallocInitializedArrays
 {
-    [routes release];
-    [allStopURLs release];
-    [mutableArray01_RouteNumber release];
-    [mutableArray04_Transport release];
-    [mutableArray05_Operator release];
-    [mutableArray06_ValidityPeriods release];
-    [mutableArray09_RouteType release];
-    [mutableArray11_RouteName release];
-    [mutableArray12_Weekdays release];
-    [mutableArray13_RouteID release];
-    [mutableArrya15_RouteStops release];
-    
     [mutableArray01_ID release];
     [mutableArray02_City release];
     [mutableArray03_Area release];
@@ -205,13 +180,10 @@ static void singleton_remover()
         
         MRouteWithSchedule *mRoute = [MRouteWithSchedule newMRoute];
         
-        for (i = 318; i < [lines count]; i++)
+        for (i = 1; i < [lines count]; i++)
         {
-            stopURLs = [[NSMutableArray alloc] init];
             NSString *oneRouteString = [lines objectAtIndex:i];
             NSArray *oneRouteArray = [oneRouteString componentsSeparatedByString:@";"];
-            if (i + 1 >= [lines count])
-                break;
             
             routeNumber = [oneRouteArray objectAtIndex:0];
             
@@ -230,18 +202,19 @@ static void singleton_remover()
                 [unicodeLetter release];
                 previousRouteNumber = correctRouteNumber;
             }
-            [mutableArray01_RouteNumber addObject:previousRouteNumber];
 
             //----------------------------------------------//
             mRoute->transportNumber = previousRouteNumber;
             //----------------------------------------------//
             
-            // get type of transport. Words "bus", "tram", "metro", "trol" met once in source.
+            // get type of transport. Words "bus", "tram", "metro", "trol" meet once in source.
             
             typeOfTransport = @"bus";
-            typeOfTransport = [[oneRouteArray objectAtIndex:3] isEqual:@""] ? 
-                                    typeOfTransport : 
-                                    [oneRouteArray objectAtIndex:3];
+            NSString *temp = [oneRouteArray objectAtIndex:3];
+            if (![temp isEqualToString:@""]) {
+                typeOfTransport = temp;
+            }
+            
             if ([typeOfTransport isEqualToString:@"bus"]) {
                 typeOfTransport = @"Autobus";
                 typeOfTransportEnum = BUS;
@@ -259,31 +232,21 @@ static void singleton_remover()
                 typeOfTransportEnum = METRO;
             }
             
-            [mutableArray04_Transport addObject:typeOfTransport];
-            
             //----------------------------------------------//
             mRoute->typeOfTransport = typeOfTransportEnum;
             //----------------------------------------------//
             
             operator = [oneRouteArray objectAtIndex:4];
-            [mutableArray05_Operator addObject:operator];
-            
             validityPeriod = [oneRouteArray objectAtIndex:5];
-            [mutableArray06_ValidityPeriods addObject:validityPeriod];
             
             routeType = [oneRouteArray objectAtIndex:8];
             routeType = [routeType stringByReplacingOccurrencesOfString:@">" withString:@"%3E"];
-            [mutableArray09_RouteType addObject:routeType];
             
             NSString* routeNameInUnicode = [oneRouteArray objectAtIndex:10];
-            
-            [FullInfoAboutRoute sharedMySingleton].currentStop = routeNameInUnicode;
-            [mutableArray11_RouteName addObject:routeNameInUnicode];
             
             //----------------------------------------------//
             [mRoute setRouteName: routeNameInUnicode];
             //----------------------------------------------//
-            [routeNameInUnicode release];
             
             NSString* weekdays = [oneRouteArray objectAtIndex:11];
             NSMutableArray* weekdaysAsArray = [[NSMutableArray alloc]init];
@@ -291,11 +254,8 @@ static void singleton_remover()
                 NSString* weekday = [NSString stringWithFormat:@"%C",[weekdays characterAtIndex:i]];
                 [weekdaysAsArray addObject:weekday];
             }
-            // it's mutableArray12_Weekdays = NSMutableArray<NSMutableArray>
-            [mutableArray12_Weekdays addObject:weekdaysAsArray];
             
             routeId = [oneRouteArray objectAtIndex:12];
-            [mutableArray13_RouteID addObject:routeId];
             
             //----------------------------------------------//
             mRoute->routeId = [routeId intValue];
@@ -303,7 +263,6 @@ static void singleton_remover()
             
             NSString* routeStops = [oneRouteArray objectAtIndex:14];
             NSArray* routeStopsAsArray = [routeStops componentsSeparatedByString:@","];
-            [mutableArrya15_RouteStops addObject:routeStopsAsArray];
             
             // Need only Monday-schedule, Saturday-schedule and Sunday-schedule
             NSMutableArray* newWeekdaysAsArray = [[NSMutableArray alloc] init];
@@ -331,8 +290,7 @@ static void singleton_remover()
             
             for (NSString* stopId in routeStopsAsArray) {
                 for (NSString* weekday in newWeekdaysAsArray) {
-                    NSMutableString* stopURL = [NSMutableString stringWithCapacity: 20];
-                    [stopURL appendFormat: @"http://www.minsktrans.by/pda/index.php?RouteNum=%@&StopID=%@&RouteType=%@&day=%@&Transport=%@", previousRouteNumber, stopId, routeType, weekday, typeOfTransport];
+                    NSString *stopURL = [NSString stringWithFormat: @"http://www.minsktrans.by/pda/index.php?RouteNum=%@&StopID=%@&RouteType=%@&day=%@&Transport=%@", previousRouteNumber, stopId, routeType, weekday, typeOfTransport];
                     //----------------------------------------------//
                     mRoute->dayOfWeek = [weekday intValue];
                     mRoute->stopId = [stopId intValue];
@@ -351,20 +309,9 @@ static void singleton_remover()
                     [self addScheduleToDatabase:mRoute];
                     
                     [schedule release];
-                    
-                    // show progress of updating
-                    [self showProgress];
-                    if (isUserClickedOnStopButtonWhenUpdate == YES)
-                        return;
-                    
-                    [allStopURLs addObject:escapedStopURL];
-                    [stopURLs addObject:escapedStopURL];
-                    [escapedStopURL release];
                 }
             }
             
-            //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!//
-            [routes addObject:mRoute];
             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!//
             [self addRouteToDatabase:mRoute];
             NSLog(@"%i", counter++);
@@ -373,7 +320,6 @@ static void singleton_remover()
             [newWeekdaysAsArray release];
             [routeStopsAsArray release];
         }
-        [stopURLs release];
 
         [mRoute release];
         [previousRouteNumber release];
@@ -534,30 +480,24 @@ static void singleton_remover()
     
 }
 
--(void)addRouteToDatabase:(MRouteWithSchedule *)route {
-    NSError *err = nil;
-    
+-(void)addRouteToDatabase:(MRouteWithSchedule *)route
+{
     Routes *routesEntity = (Routes *)[NSEntityDescription insertNewObjectForEntityForName: @"Routes" inManagedObjectContext: managedObjectContext];
     
     // saving one Routes-entity
     NSNumber *routeIdNumber = [NSNumber numberWithInt: route->routeId];
     routesEntity.RouteId = routeIdNumber;
     routesEntity.RouteName = [route routeName];
-    // идентичные строки
-//    [routesEntity setValue:[route routeName] forKey:@"RouteName"];
     routesEntity.StartName = [route nameOfStartStop];
     routesEntity.EndName = [route nameOfEndStop];
     routesEntity.TransportNumber = route->transportNumber;
     routesEntity.TypeOfTransport = [NSNumber numberWithInt: (int)route->typeOfTransport];
     
-    if (![managedObjectContext save:&err]) {
-        NSLog(@"Error with Routes-Entity: %@", &err);
-    }
+    [managedObjectContext save:nil];
 }
 
--(void)addScheduleToDatabase:(MRouteWithSchedule *)schedule {
-    NSError *err = nil;
-    
+-(void)addScheduleToDatabase:(MRouteWithSchedule *)schedule
+{    
     RoutesStops *routesStopsEntity = (RoutesStops *)[NSEntityDescription insertNewObjectForEntityForName:@"RoutesStops" inManagedObjectContext: managedObjectContext];
     
     // saving one Routes-entity
@@ -579,26 +519,18 @@ static void singleton_remover()
     routesStopsEntity.OrdinalNumberOfStopInRoute = ordinalNumber;
     ordinalNumberOfStopInRoute++;
     
-    
-    if (![managedObjectContext save:&err]) {
-        NSLog(@"Error with RoutesStops-Entity: %@", &err);
-    }
-    
     counterHelperIdTimes++;
     Times *timesEntity = (Times *)[NSEntityDescription insertNewObjectForEntityForName:@"Times" inManagedObjectContext: managedObjectContext];
     timesEntity.HelperId = [NSNumber numberWithInt:counterHelperIdTimes];
     timesEntity.RouteStopId = routeStopIdNumber;
     timesEntity.DayOfWeek = [NSNumber numberWithInt: schedule->dayOfWeek];
     timesEntity.Time = schedule->scheduleInStringFormat;
-    if (![managedObjectContext save:&err]) {
-        NSLog(@"Error with Times-Entity: %@", &err);
-    }
+
+    [managedObjectContext save:nil];
 }
 
 -(void)addStopToDatabase:(MStop *)stop
 {
-    NSError *error = nil;
-    
     Stops *stopsEntity = (Stops *)[NSEntityDescription insertNewObjectForEntityForName:@"Stops" inManagedObjectContext:managedObjectContext];
     
     stopsEntity.StopId = stop->stopId;
@@ -606,9 +538,7 @@ static void singleton_remover()
     stopsEntity.Latitude = stop->latitude;
     stopsEntity.Longitude = stop->longitude;
     
-    if (![managedObjectContext save:&error]) {
-        NSLog(@"Error with Stops-Entity: %@", &error);
-    }
+    [managedObjectContext save:nil];
 }
 
 -(NSMutableArray *)getAllStopsFromDatabase
