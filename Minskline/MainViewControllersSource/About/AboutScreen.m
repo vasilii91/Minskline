@@ -48,7 +48,7 @@
     UITabBarItem *tbi = [self tabBarItem];
     
     // Give it a label
-    [tbi setTitle:@"О программе"];
+    [tbi setTitle:@"О программе 2"];
     
     
     // Create a UIImage from a file
