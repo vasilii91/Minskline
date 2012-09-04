@@ -39,10 +39,10 @@
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    // e.g. self.myOutlet = nil; 
 }
 
-- (id)init 
+- (id)init
 {
     // Get the tab bar item
     UITabBarItem *tbi = [self tabBarItem];
