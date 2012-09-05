@@ -172,6 +172,7 @@ static void singleton_remover()
         NSString* previousRouteNumber = nil;
         NSString* routeNumber = nil;
         NSString* typeOfTransport = nil;
+        NSString *typeOfTransport0 = nil;
         TypeOfTransportEnum typeOfTransportEnum;
         NSString* operator = nil;
         NSString* validityPeriod = nil;
@@ -211,25 +212,24 @@ static void singleton_remover()
             
             // get type of transport. Words "bus", "tram", "metro", "trol" meet once in source.
             
-            typeOfTransport = @"bus";
             NSString *temp = [oneRouteArray objectAtIndex:3];
             if (![temp isEqualToString:@""]) {
-                typeOfTransport = temp;
+                typeOfTransport0 = temp;
             }
             
-            if ([typeOfTransport isEqualToString:@"bus"]) {
+            if ([typeOfTransport0 isEqualToString:@"bus"]) {
                 typeOfTransport = @"Autobus";
                 typeOfTransportEnum = BUS;
             }
-            else if ([typeOfTransport isEqualToString:@"tram"]) {
+            else if ([typeOfTransport0 isEqualToString:@"tram"]) {
                 typeOfTransport = @"Tramway";
                 typeOfTransportEnum = TRAMWAY;
             }
-            else if ([typeOfTransport isEqualToString:@"trol"]) {
+            else if ([typeOfTransport0 isEqualToString:@"trol"]) {
                 typeOfTransport = @"Trolleybus";
                 typeOfTransportEnum = TROLLEYBUS;
             }
-            else if ([typeOfTransport isEqualToString:@"metro"]) {
+            else if ([typeOfTransport0 isEqualToString:@"metro"]) {
                 typeOfTransport = @"Metro";
                 typeOfTransportEnum = METRO;
             }
