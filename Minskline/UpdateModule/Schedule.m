@@ -32,7 +32,6 @@ static NSInteger PERIOD_OF_TIME_IN_MINUTES = 25;
                                                     error:nil];
 
 	NSArray *lines = [webpage componentsSeparatedByString: @"<b>"];
-    NSArray *oneLine = nil;
     schedule = [[NSMutableArray alloc] init];
     
     // если второй символ - это буква, то формат html неверный и тогда нужно начинать не с третьей
@@ -48,7 +47,7 @@ static NSInteger PERIOD_OF_TIME_IN_MINUTES = 25;
     }
     
     for (int i = indexToStart; i < [lines count]; i++) {
-        oneLine = [[lines objectAtIndex:i] componentsSeparatedByString:@" "];
+        NSArray *oneLine = [[lines objectAtIndex:i] componentsSeparatedByString:@" "];
         NSMutableArray *newOneLine = nil;
         newOneLine = [oneLine mutableCopy];
         

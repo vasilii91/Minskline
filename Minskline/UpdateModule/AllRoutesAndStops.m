@@ -180,6 +180,8 @@ static void singleton_remover()
         
         MRouteWithSchedule *mRoute = [MRouteWithSchedule newMRoute];
         
+        NSInteger countOfProceededURLs = 0;
+        
         for (i = 1; i < [lines count]; i++)
         {
             NSString *oneRouteString = [lines objectAtIndex:i];
@@ -304,17 +306,19 @@ static void singleton_remover()
                     mRoute.schedule = [schedule schedule];
                     mRoute->scheduleInStringFormat = [schedule scheduleInStringFormat];
                     //----------------------------------------------//
-                    
+
                     // add schedule to database
                     [self addScheduleToDatabase:mRoute];
                     
                     [schedule release];
+                    
+                    countOfProceededURLs++;
                 }
             }
             
             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!//
             [self addRouteToDatabase:mRoute];
-            NSLog(@"%i", counter++);
+            NSLog(@"schedules - %i, URLs - %i", counter++, countOfProceededURLs);
             
             [weekdaysAsArray release];
             [newWeekdaysAsArray release];
@@ -497,7 +501,7 @@ static void singleton_remover()
 }
 
 -(void)addScheduleToDatabase:(MRouteWithSchedule *)schedule
-{    
+{
     RoutesStops *routesStopsEntity = (RoutesStops *)[NSEntityDescription insertNewObjectForEntityForName:@"RoutesStops" inManagedObjectContext: managedObjectContext];
     
     // saving one Routes-entity
