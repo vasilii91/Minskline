@@ -70,7 +70,7 @@ static NSInteger SPACING_SIZE = 5;
     [progressView setHidden:YES];
     [percentageLabel setHidden:YES];
     [stopButton setHidden:YES];
-    [updateButton setHidden:NO];
+    [updateButton setHidden:YES];
     
     [self addDataToArrayOfDirections:YES];
     
@@ -188,10 +188,17 @@ static NSInteger SPACING_SIZE = 5;
         }
 
         if (!isInitialized) {
-            for (int i = 0; i < [arrayOfDirections count] / COUNT_OF_BUTTONS_IN_ROW; i++)
+            NSInteger countOfRows = [arrayOfDirections count] / COUNT_OF_BUTTONS_IN_ROW;
+            if ([arrayOfDirections count] % COUNT_OF_BUTTONS_IN_ROW != 0) {
+                countOfRows++;
+            }
+            for (int i = 0; i < countOfRows; i++)
             {
                 for (int j = 0; j < COUNT_OF_BUTTONS_IN_ROW; j++)
                 {
+                    if (i * COUNT_OF_BUTTONS_IN_ROW + j == [arrayOfDirections count]) {
+                        break;
+                    }
                     UIButton *button = [[UIButton alloc] init];
                     button.frame = CGRectMake((BUTTON_DIMENTION + SPACING_SIZE) * j, 
                                               (BUTTON_DIMENTION + SPACING_SIZE) * i, 

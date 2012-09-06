@@ -218,17 +218,21 @@
     NSURL *updateFileURL = [[NSBundle mainBundle] URLForResource:@"update" withExtension:@""];
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Minskline.sqlite"];
+    NSDictionary *attrs = [[NSFileManager defaultManager] attributesOfItemAtPath:[storeURL relativePath]  error:nil];
+    NSUInteger databaseDataLengthInDocuments = [attrs fileSize];
     
     NSString *IS_COPIED = @"is copied";
     NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
     
-    if (![[def valueForKey:IS_COPIED] isEqualToString:@"YES"]) {
+//    if (![[def valueForKey:IS_COPIED] isEqualToString:@"YES"]) {
         // копируем содержимое базы данных в documentsDirectory только при первом запуске
         //        NSString *path = [NSString stringWithFormat:@"%@", [self pathForDocuments]];
         //        path = [path stringByAppendingFormat:@"/%@", databaseName];
         
-        NSData *databaseData = [NSData dataWithContentsOfURL:storeBundleURL];
-        
+    NSData *databaseData = [NSData dataWithContentsOfURL:storeBundleURL];
+    NSUInteger databaseDataLengthInBundle = [databaseData length];
+    
+    if (databaseDataLengthInBundle != databaseDataLengthInDocuments) {
         NSFileManager *fileManager = [NSFileManager defaultManager];
         NSString *relativePath = [storeURL relativePath];
         [fileManager createFileAtPath:relativePath contents:databaseData attributes:nil];

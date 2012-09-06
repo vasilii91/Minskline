@@ -120,6 +120,49 @@ static void singleton_remover()
     return temp;
 }
 
+- (void)addTestTrolleybus
+{
+    MRouteWithSchedule *mRoute = [MRouteWithSchedule newMRoute];
+    
+    counterRouteStopId = 70002;
+    mRoute->transportNumber = @"T";
+    mRoute->typeOfTransport = TRAMWAY;
+    [mRoute setRouteName: @"Test2-Test2"];
+    mRoute->routeId = 200000;
+    mRoute->dayOfWeek = 1;
+    mRoute->stopId = 100000;
+    mRoute->scheduleInStringFormat = @"1000";
+    //----------------------------------------------//
+    
+    // add schedule to database
+    [self addScheduleToDatabase:mRoute];
+    
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!//
+    [self addRouteToDatabase:mRoute];
+}
+
+- (void)removeRouteFromDatabaseWithRouteName:(NSString *)routeName
+{
+    NSError *error = nil;
+    
+    NSFetchRequest *requestToRoutes = [[[NSFetchRequest alloc] init] autorelease];
+    NSEntityDescription *entityDescriptionToRoutes= [NSEntityDescription entityForName:@"Routes" inManagedObjectContext: managedObjectContext];
+    [requestToRoutes setEntity:entityDescriptionToRoutes];
+    
+    NSPredicate *predicateToRoutes = nil;
+    predicateToRoutes = [NSPredicate predicateWithFormat:@"RouteName == %@", routeName];
+    [requestToRoutes setPredicate:predicateToRoutes];
+    
+    NSDictionary *entityProperties = [entityDescriptionToRoutes propertiesByName];
+    [requestToRoutes setReturnsDistinctResults:NO];
+    [requestToRoutes setPropertiesToFetch:[NSArray arrayWithObject:[entityProperties objectForKey:@"RouteId"]]];
+    
+    //-----NSArray<Routes>-----
+    NSManagedObject *obj = [[managedObjectContext executeFetchRequest:requestToRoutes error:&error] objectAtIndex:0];
+    [managedObjectContext deleteObject:obj];
+    [managedObjectContext save:nil];
+}
+
 -(void)getAllRoutesFromURLAsynchronous
 {
     NSLog(@"START");
@@ -130,7 +173,7 @@ static void singleton_remover()
     
     NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
     // get info about all stops from core-URL
-    [self getInfoAboutAllStopsAndSaveToDatabase];
+//    [self getInfoAboutAllStopsAndSaveToDatabase];
     
     // с - \U0441
     // д - \U0434
@@ -183,6 +226,9 @@ static void singleton_remover()
         
         NSInteger countOfProceededURLs = 0;
         
+//        typeOfTransport0 = @"tram";
+//        counterRouteStopId = 70000;
+//        for (i = 531; i < 541; i++)
         for (i = 1; i < [lines count]; i++)
         {
             NSString *oneRouteString = [lines objectAtIndex:i];

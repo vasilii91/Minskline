@@ -202,8 +202,8 @@
 		108D859B158BA09B001DCD27 /* PleaseWaitAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 108D8589158BA09B001DCD27 /* PleaseWaitAlertView.m */; };
 		108D859C158BA09B001DCD27 /* ScrollingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 108D858B158BA09B001DCD27 /* ScrollingLabel.m */; };
 		108D859D158BA09B001DCD27 /* UIImageAdding.m in Sources */ = {isa = PBXBuildFile; fileRef = 108D858D158BA09B001DCD27 /* UIImageAdding.m */; };
+		10BC494215F93E0000CA63CE /* Minskline.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 10BC494115F93E0000CA63CE /* Minskline.sqlite */; };
 		10D81FF1158BC38C000DDF8C /* ml57.png in Resources */ = {isa = PBXBuildFile; fileRef = 10D81FF0158BC38C000DDF8C /* ml57.png */; };
-		10D81FF5158BC6E1000DDF8C /* Minskline.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 10D81FF4158BC6E1000DDF8C /* Minskline.sqlite */; };
 		10EAD5C515A37E9A00B4F8FE /* metro_and_favorites_cell_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 10EAD5C415A37E9900B4F8FE /* metro_and_favorites_cell_selected.png */; };
 /* End PBXBuildFile section */
 
@@ -461,8 +461,8 @@
 		108D858B158BA09B001DCD27 /* ScrollingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollingLabel.m; sourceTree = "<group>"; };
 		108D858C158BA09B001DCD27 /* UIImageAdding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageAdding.h; sourceTree = "<group>"; };
 		108D858D158BA09B001DCD27 /* UIImageAdding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageAdding.m; sourceTree = "<group>"; };
+		10BC494115F93E0000CA63CE /* Minskline.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Minskline.sqlite; sourceTree = "<group>"; };
 		10D81FF0158BC38C000DDF8C /* ml57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ml57.png; sourceTree = "<group>"; };
-		10D81FF4158BC6E1000DDF8C /* Minskline.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Minskline.sqlite; sourceTree = "<group>"; };
 		10EAD5C415A37E9900B4F8FE /* metro_and_favorites_cell_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metro_and_favorites_cell_selected.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -923,7 +923,7 @@
 		10D81FF3158BC6D0000DDF8C /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				10D81FF4158BC6E1000DDF8C /* Minskline.sqlite */,
+				10BC494115F93E0000CA63CE /* Minskline.sqlite */,
 			);
 			name = Database;
 			sourceTree = "<group>";
@@ -1128,7 +1128,6 @@
 				10320AF7158BB8A500D28E13 /* Settings.plist in Resources */,
 				10320AF8158BB8A500D28E13 /* update in Resources */,
 				10D81FF1158BC38C000DDF8C /* ml57.png in Resources */,
-				10D81FF5158BC6E1000DDF8C /* Minskline.sqlite in Resources */,
 				105C27D215954CDE0070BD67 /* Default.png in Resources */,
 				105C27D615954DD20070BD67 /* background.png in Resources */,
 				105C27D815955D190070BD67 /* background05.png in Resources */,
@@ -1142,6 +1141,7 @@
 				105C27E8159576F10070BD67 /* metro_and_favorites_cell.png in Resources */,
 				105C27EA159579720070BD67 /* time_result_cell.png in Resources */,
 				10EAD5C515A37E9A00B4F8FE /* metro_and_favorites_cell_selected.png in Resources */,
+				10BC494215F93E0000CA63CE /* Minskline.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1282,8 +1282,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				PROVISIONING_PROFILE = "5BA0141B-C295-4ED6-8212-EAA02DAE7AE2";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5BA0141B-C295-4ED6-8212-EAA02DAE7AE2";
+				PROVISIONING_PROFILE = "F654F0DC-D1D1-4A82-B618-38A03CE1DEDE";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F654F0DC-D1D1-4A82-B618-38A03CE1DEDE";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1303,8 +1303,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "5BA0141B-C295-4ED6-8212-EAA02DAE7AE2";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5BA0141B-C295-4ED6-8212-EAA02DAE7AE2";
+				PROVISIONING_PROFILE = "F654F0DC-D1D1-4A82-B618-38A03CE1DEDE";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F654F0DC-D1D1-4A82-B618-38A03CE1DEDE";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1313,11 +1313,15 @@
 		108D8540158B9D76001DCD27 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vasil Kasnitski (FNQWCWZDZ8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vasil Kasnitski (FNQWCWZDZ8)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Minskline/Minskline-Prefix.pch";
 				INFOPLIST_FILE = "Minskline/Minskline-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "F654F0DC-D1D1-4A82-B618-38A03CE1DEDE";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F654F0DC-D1D1-4A82-B618-38A03CE1DEDE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1325,11 +1329,15 @@
 		108D8541158B9D76001DCD27 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vasil Kasnitski (FNQWCWZDZ8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vasil Kasnitski (FNQWCWZDZ8)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Minskline/Minskline-Prefix.pch";
 				INFOPLIST_FILE = "Minskline/Minskline-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "F654F0DC-D1D1-4A82-B618-38A03CE1DEDE";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F654F0DC-D1D1-4A82-B618-38A03CE1DEDE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
