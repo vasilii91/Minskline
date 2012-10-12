@@ -120,6 +120,49 @@ static void singleton_remover()
     return temp;
 }
 
+- (void)addTestTrolleybus
+{
+    MRouteWithSchedule *mRoute = [MRouteWithSchedule newMRoute];
+    
+    counterRouteStopId = 70002;
+    mRoute->transportNumber = @"T";
+    mRoute->typeOfTransport = TRAMWAY;
+    [mRoute setRouteName: @"Test2-Test2"];
+    mRoute->routeId = 200000;
+    mRoute->dayOfWeek = 1;
+    mRoute->stopId = 100000;
+    mRoute->scheduleInStringFormat = @"1000";
+    //----------------------------------------------//
+    
+    // add schedule to database
+    [self addScheduleToDatabase:mRoute];
+    
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!//
+    [self addRouteToDatabase:mRoute];
+}
+
+- (void)removeRouteFromDatabaseWithRouteName:(NSString *)routeName
+{
+    NSError *error = nil;
+    
+    NSFetchRequest *requestToRoutes = [[[NSFetchRequest alloc] init] autorelease];
+    NSEntityDescription *entityDescriptionToRoutes= [NSEntityDescription entityForName:@"Routes" inManagedObjectContext: managedObjectContext];
+    [requestToRoutes setEntity:entityDescriptionToRoutes];
+    
+    NSPredicate *predicateToRoutes = nil;
+    predicateToRoutes = [NSPredicate predicateWithFormat:@"RouteName == %@", routeName];
+    [requestToRoutes setPredicate:predicateToRoutes];
+    
+    NSDictionary *entityProperties = [entityDescriptionToRoutes propertiesByName];
+    [requestToRoutes setReturnsDistinctResults:NO];
+    [requestToRoutes setPropertiesToFetch:[NSArray arrayWithObject:[entityProperties objectForKey:@"RouteId"]]];
+    
+    //-----NSArray<Routes>-----
+    NSManagedObject *obj = [[managedObjectContext executeFetchRequest:requestToRoutes error:&error] objectAtIndex:0];
+    [managedObjectContext deleteObject:obj];
+    [managedObjectContext save:nil];
+}
+
 -(void)getAllRoutesFromURLAsynchronous
 {
     NSLog(@"START");
@@ -130,7 +173,7 @@ static void singleton_remover()
     
     NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
     // get info about all stops from core-URL
-    [self getInfoAboutAllStopsAndSaveToDatabase];
+//    [self getInfoAboutAllStopsAndSaveToDatabase];
     
     // с - \U0441
     // д - \U0434
@@ -172,6 +215,7 @@ static void singleton_remover()
         NSString* previousRouteNumber = nil;
         NSString* routeNumber = nil;
         NSString* typeOfTransport = nil;
+        NSString *typeOfTransport0 = nil;
         TypeOfTransportEnum typeOfTransportEnum;
         NSString* operator = nil;
         NSString* validityPeriod = nil;
@@ -182,6 +226,9 @@ static void singleton_remover()
         
         NSInteger countOfProceededURLs = 0;
         
+//        typeOfTransport0 = @"tram";
+//        counterRouteStopId = 70000;
+//        for (i = 531; i < 541; i++)
         for (i = 1; i < [lines count]; i++)
         {
             NSString *oneRouteString = [lines objectAtIndex:i];
@@ -211,25 +258,24 @@ static void singleton_remover()
             
             // get type of transport. Words "bus", "tram", "metro", "trol" meet once in source.
             
-            typeOfTransport = @"bus";
             NSString *temp = [oneRouteArray objectAtIndex:3];
             if (![temp isEqualToString:@""]) {
-                typeOfTransport = temp;
+                typeOfTransport0 = temp;
             }
             
-            if ([typeOfTransport isEqualToString:@"bus"]) {
+            if ([typeOfTransport0 isEqualToString:@"bus"]) {
                 typeOfTransport = @"Autobus";
                 typeOfTransportEnum = BUS;
             }
-            else if ([typeOfTransport isEqualToString:@"tram"]) {
+            else if ([typeOfTransport0 isEqualToString:@"tram"]) {
                 typeOfTransport = @"Tramway";
                 typeOfTransportEnum = TRAMWAY;
             }
-            else if ([typeOfTransport isEqualToString:@"trol"]) {
+            else if ([typeOfTransport0 isEqualToString:@"trol"]) {
                 typeOfTransport = @"Trolleybus";
                 typeOfTransportEnum = TROLLEYBUS;
             }
-            else if ([typeOfTransport isEqualToString:@"metro"]) {
+            else if ([typeOfTransport0 isEqualToString:@"metro"]) {
                 typeOfTransport = @"Metro";
                 typeOfTransportEnum = METRO;
             }

@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Minskline/UpdateModule/AllRoutesAndStops.m"
-         timestampString = "368478513.228845"
+         timestampString = "368658096.714223"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1303"
-         endingLineNumber = "1303"
+         startingLineNumber = "1360"
+         endingLineNumber = "1360"
          landmarkName = "-findAllPossibleRoutesByRouteName"
          landmarkType = "5">
       </FileBreakpoint>
@@ -60,12 +60,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Minskline/UpdateModule/AllRoutesAndStops.m"
-         timestampString = "368478513.228845"
+         timestampString = "368658096.714223"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1347"
-         endingLineNumber = "1347"
-         landmarkName = "-findAllPossibleRoutesByRouteName"
+         startingLineNumber = "1404"
+         endingLineNumber = "1404"
+         landmarkName = "-getRouteById:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Minskline/UpdateModule/AllRoutesAndStops.m"
-         timestampString = "368478513.228845"
+         timestampString = "368658096.714223"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1227"
-         endingLineNumber = "1227"
+         startingLineNumber = "1284"
+         endingLineNumber = "1284"
          landmarkName = "-findAllPossibleRoutes"
          landmarkType = "5">
       </FileBreakpoint>
@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Minskline/UpdateModule/AllRoutesAndStops.m"
-         timestampString = "368478513.228845"
+         timestampString = "368658096.714223"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1135"
-         endingLineNumber = "1135"
+         startingLineNumber = "1192"
+         endingLineNumber = "1192"
          landmarkName = "-findAllPossibleRoutes"
          landmarkType = "5">
       </FileBreakpoint>
@@ -108,29 +108,16 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Minskline/UpdateModule/AllRoutesAndStops.m"
-         timestampString = "368478513.228845"
+         timestampString = "368658096.714223"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "184"
-         endingLineNumber = "184"
-         landmarkName = "-getAllRoutesFromURLAsynchronous"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Minskline/UpdateModule/AllRoutesAndStops.m"
-         timestampString = "368478671.98843"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "316"
-         endingLineNumber = "316"
-         landmarkName = "-getAllRoutesFromURLAsynchronous"
+         startingLineNumber = "761"
+         endingLineNumber = "761"
+         landmarkName = "-getAllRoutesByTypeOfTransport:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -138,11 +125,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Minskline/UpdateModule/AllRoutesAndStops.m"
-         timestampString = "368478837.586643"
+         timestampString = "368658026.303109"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "293"
-         endingLineNumber = "293"
+         startingLineNumber = "148"
+         endingLineNumber = "148"
          landmarkName = "-getAllRoutesFromURLAsynchronous"
          landmarkType = "5">
       </FileBreakpoint>
@@ -150,26 +137,13 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Minskline/UpdateModule/Schedule.m"
-         timestampString = "368478913.375607"
+         filePath = "Minskline/MainViewControllersSource/Settings/SettingsScreen.m"
+         timestampString = "368654181.450986"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "34"
-         endingLineNumber = "34"
-         landmarkName = "-getScheduleFromURL:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Minskline/UpdateModule/Schedule.m"
-         timestampString = "368478935.77987"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "30"
-         endingLineNumber = "30"
-         landmarkName = "-getScheduleFromURL:"
+         startingLineNumber = "243"
+         endingLineNumber = "243"
+         landmarkName = "-connectionDidFinishLoading:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -237,13 +237,14 @@
     // receivedData is declared as a method instance elsewhere
     NSLog(@"Succeeded! Received %d bytes of data",[receivedData length]);
     
-    NSString *databaseName = @"Minsktrans.sqlite";
+    NSString *databaseName = @"Minskline.sqlite";
     
     NSString *path = [NSString stringWithFormat:@"%@", [SettingsScreen pathForDocuments]];
     path = [path stringByAppendingFormat:@"/%@", databaseName];
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    [fileManager removeItemAtPath:path error:NULL];
+    NSError *err;
+    [fileManager removeItemAtPath:path error:nil];
     [receivedData writeToFile:path atomically:YES];
     
     [[NSUserDefaults standardUserDefaults] setValue:updateDate forKey:CURRENT_UPDATE_DATE];
