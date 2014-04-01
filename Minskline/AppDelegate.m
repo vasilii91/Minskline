@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 
+
 @implementation AppDelegate
 
 
@@ -48,7 +49,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES];
     
     clock_t start = clock();
     NSManagedObjectContext* managedOC = [self managedObjectContext];
@@ -72,22 +72,14 @@
     UIViewController *scheduleNavigationController = [[[ScheduleNavigationController alloc] init] autorelease];
     UIViewController *fromToNavigationController = [[[FromToNavigationController alloc] init] autorelease];
     UIViewController *stopsNavigationController = [[[StopsNavigationController alloc] init] autorelease];
-    UIViewController *settingsScreen = [[[SettingsScreen alloc] init] autorelease];
-    UIViewController *aboutScreen = [[[AboutScreen alloc] init] autorelease];
+    UIViewController *settingsScreenNavigationController = [[[SettingsNavigationController alloc] init] autorelease];
     
-    NSArray *viewControllers = [NSArray arrayWithObjects:scheduleNavigationController,fromToNavigationController, stopsNavigationController, settingsScreen, nil];
+    NSArray *viewControllers = [NSArray arrayWithObjects:scheduleNavigationController,fromToNavigationController, stopsNavigationController, settingsScreenNavigationController, nil];
     
     tabBarController = [[UITabBarController alloc] init];
+    tabBarController.tabBar.barStyle = UIBarStyleBlack;
+    tabBarController.tabBar.translucent = NO;
     [tabBarController setViewControllers:viewControllers];
-    
-    CGRect frame = CGRectMake(0.0, 0, 320, 48);
-    
-    UIView *v = [[UIView alloc] initWithFrame:frame];
-    
-    [v setBackgroundColor:TAB_BAR_COLOR];
-    
-    [tabBarController.tabBar insertSubview:v atIndex:0];
-    [v release];
     
     BOOL isIOS5 = [[[UIDevice currentDevice] systemVersion] floatValue] >= 5.0;
     if (isIOS5) {
@@ -95,10 +87,9 @@
         [tabBarController.tabBar setSelectedImageTintColor:TAB_BAR_TITLE_COLOR];
     }
     
-    [self.window addSubview:tabBarController.view];
-    [self.window makeKeyAndVisible];
+    self.window.rootViewController = tabBarController;
     
-    sleep(2);
+    [self.window makeKeyAndVisible];
     
     return YES;
 }

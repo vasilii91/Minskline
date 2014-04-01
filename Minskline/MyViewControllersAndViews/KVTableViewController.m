@@ -214,8 +214,8 @@
     KVTableViewCellKVTableViewController *cell = [tableViewResult dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[KVTableViewCellKVTableViewController alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier: CellIdentifier] autorelease];
-        [cell.buttonFavorite addTarget:self action:@selector(buttonClickOnIsFavorite:) forControlEvents:UIControlEventTouchUpInside];
 	}
+    cell.delegate = self;
     
 //    BOOL isFavorite = [cell.stopFromCell.isSelected intValue] == 0 ? NO : YES;
     BOOL isFavorite = NO;
@@ -298,14 +298,6 @@
     
     KVTableViewCellKVTableViewController *cell = (KVTableViewCellKVTableViewController *)[tableView cellForRowAtIndexPath:indexPath];
     textOfCell = [NSString stringWithFormat:@"%@", cell.centerLabel.text];
-    
-//    for (UIView* subview in [tableView cellForRowAtIndexPath:indexPath].subviews) 
-//    {
-//        if ([subview isKindOfClass:[KVTableViewCellKVTableViewController class]]) {
-//            KVTableViewCellKVTableViewController *tempLabel = (KVTableViewCellKVTableViewController *)subview;
-//            textOfCell = [NSString stringWithFormat:@"%@", tempLabel.centerLabel.text];
-//        }
-//    }
 }
 
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section 
@@ -353,10 +345,6 @@
 	searching = NO;
 	letUserSelectRow = NO;
 	self.tableViewResult.scrollEnabled = NO;
-	
-//    UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] 
-//                                   initWithBarButtonSystemItem:UIBarButtonSystemItemDone 
-//                                   target:self action:@selector(doneSearchingClicked)];
 
     UIImage *image = [UIImage imageNamed:@"button_ok.png"];
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -425,9 +413,12 @@
     self.navigationItem.rightBarButtonItem = nil;
 }
 
--(void)buttonClickOnIsFavorite:(id)sender
+
+#pragma mark - @protocol KVTableViewCellKVTableViewControllerDelegate <NSObject>
+
+- (void)userClickedOnFavoriteButton:(id)sender
 {
-    KVTableViewCellKVTableViewController *cell = (KVTableViewCellKVTableViewController *)[sender superview];
+    KVTableViewCellKVTableViewController *cell = (KVTableViewCellKVTableViewController *)sender;
     
     NSString *nameOfStop = cell.nameOfStop;
     
@@ -457,6 +448,7 @@
     settings.isNeedUpdate2 = YES;
     settings.isNeedUpdate3 = YES;
 }
+
 
 #pragma mark -
 #pragma mark Memory management

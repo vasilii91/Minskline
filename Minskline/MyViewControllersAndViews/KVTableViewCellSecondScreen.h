@@ -10,6 +10,13 @@
 #import "Routes.h"
 #import "Constants.h"
 
+@protocol KVTableViewCellSecondScreenDelegate <NSObject>
+
+- (void)userClickedOnFavoriteButton:(id)cell;
+
+@end
+
+
 @interface KVTableViewCellSecondScreen : UITableViewCell
 {
     @public
@@ -23,4 +30,7 @@
 
 @property (nonatomic, retain) Routes *routeToCell;
 @property (nonatomic, retain) NSIndexPath *indexPath;
+
+@property (nonatomic, assign) NSObject<KVTableViewCellSecondScreenDelegate> *delegate;
+
 @end

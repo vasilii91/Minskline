@@ -10,7 +10,6 @@
 #import "FirstScreen.h"
 #import "ResultScreen.h"
 #import "ToScreen.h"
-#import "SettingsScreen.h"
 #import "FromScreen.h"
 #import "SecondScreen.h"
 #import "ThirdScreen.h"
@@ -19,6 +18,7 @@
 #import "StopsNavigationController.h"
 #import "FromToNavigationController.h"
 #import "ScheduleNavigationController.h"
+#import "SettingsNavigationController.h"
 
 @class AllRoutesAndStops;
 

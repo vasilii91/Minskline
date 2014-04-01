@@ -19,6 +19,7 @@
         buttonFavorite = [UIButton buttonWithType:UIButtonTypeCustom];
         buttonFavorite.frame = CGRectMake(260, 10, 34, 34);
         [buttonFavorite setHidden:NO];
+        [buttonFavorite addTarget:self action:@selector(clickOnFavoriteButton) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:buttonFavorite];
         
         self.backgroundView = [[[UIImageView alloc] init] autorelease];
@@ -44,4 +45,11 @@
     return self;
 }
 
+
+#pragma mark - Actions
+
+- (void)clickOnFavoriteButton
+{
+    [self.delegate userClickedOnFavoriteButton:self];
+}
 @end

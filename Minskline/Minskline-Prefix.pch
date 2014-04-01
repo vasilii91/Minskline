@@ -13,3 +13,19 @@
     #import <Foundation/Foundation.h>
     #import <CoreData/CoreData.h>
 #endif
+
+#define IS_WIDESCREEN ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+
+#define IS_IPAD   (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define IS_IPHONE_5 ( IS_IPHONE && IS_WIDESCREEN )
+
+#define IPAD_HEIGHT 768
+#define IPAD_WIDTH 1024
+#define IPHONE_HEIGHT (IS_IPHONE_5 ? 568 : 480)
+#define IPHONE_WIDTH 320
+
+#define IDEVICE_HEIGHT (IS_IPHONE ? IPHONE_HEIGHT : IPAD_HEIGHT)
+#define IDEVICE_WIDTH (IS_IPHONE ? IPHONE_WIDTH : IPAD_WIDTH)
+#define IDEVICE_STATUS_BAR_HEIGHT 20
+#define IDEVICE_STATUS_BAR_DELTA (IS_IOS7_OR_GREATER ? 0 : 20)

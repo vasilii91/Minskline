@@ -12,22 +12,6 @@
 
 @synthesize navigationController;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
 
 #pragma mark - View lifecycle
 
@@ -43,7 +27,9 @@
     self.navigationBar.topItem.title= @"Откуда";
     UILabel *label = [PrettyViews labelToNavigationBarWithTitle:@"Откуда"];
     self.navigationBar.topItem.titleView = label;
-    self.navigationBar.tintColor = NAV_BAR_COLOR;
+    self.navigationBar.tintColor = TAB_BAR_TITLE_COLOR;
+    self.navigationBar.barStyle = UIBarStyleBlack;
+    self.navigationBar.translucent = NO;
 }
 
 - (void)viewDidUnload

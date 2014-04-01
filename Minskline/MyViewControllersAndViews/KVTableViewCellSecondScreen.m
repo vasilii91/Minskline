@@ -49,17 +49,11 @@
         [overBottomLabel release];
         
         buttonFavorite = [[UIButton alloc] initWithFrame:CGRectMake(270, 15, 35, 35)];
+        [buttonFavorite addTarget:self action:@selector(clickOnFavoriteButton) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:buttonFavorite];
         [buttonFavorite release];
     }
     return self;
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 - (void)dealloc
@@ -67,4 +61,13 @@
     indexPath = nil;
     [super dealloc];
 }
+
+
+#pragma mark - Actions 
+
+- (void)clickOnFavoriteButton
+{
+    [self.delegate userClickedOnFavoriteButton:self];
+}
+
 @end

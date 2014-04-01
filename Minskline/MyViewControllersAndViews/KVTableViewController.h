@@ -15,7 +15,7 @@
 @class FullInfoAboutRoute;
 @class AllRoutesAndStops;
 
-@interface KVTableViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate> {
+@interface KVTableViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, KVTableViewCellKVTableViewControllerDelegate> {
                 
     // в нем лежат только остановки для текущей секции
     NSMutableArray *listOfStops;

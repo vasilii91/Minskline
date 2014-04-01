@@ -16,7 +16,7 @@
 #import "ThirdScreen.h"
 #import "PrettyViews.h"
 
-@interface SecondScreen : UIViewController<UITableViewDelegate, UITableViewDataSource> {
+@interface SecondScreen : UIViewController<UITableViewDelegate, UITableViewDataSource, KVTableViewCellSecondScreenDelegate> {
     // ---<String>-----
     NSMutableArray *differentRoutes;
     // ---<Routes>-----

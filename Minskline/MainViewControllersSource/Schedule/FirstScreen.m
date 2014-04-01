@@ -7,6 +7,8 @@
 //
 
 #import "FirstScreen.h"
+#import "Minskline2_0ViewController.h"
+
 
 static NSString *IMAGE_NAME_AUTOBUS_CLICKED = @"autobus_clicked.png";
 static NSString *IMAGE_NAME_TROLLEYBUS_CLICKED= @"trolleybus_clicked.png";
@@ -48,13 +50,6 @@ static NSInteger SPACING_SIZE = 5;
     [super dealloc];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
 
 #pragma mark - View lifecycle
 
@@ -95,6 +90,14 @@ static NSInteger SPACING_SIZE = 5;
     [self createButtonsOfRoutes:TROLLEYBUS];
     [self createButtonsOfRoutes:TRAMWAY];
     [self buttonClickOnOneOfButton:nil];
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isShownMinskline_2"] == NO) {
+        
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isShownMinskline_2"];
+    
+        Minskline2_0ViewController *minsklineVC = [[Minskline2_0ViewController alloc] initWithNibName:@"Minskline2_0ViewController" bundle:nil];
+        [self presentModalViewController:minsklineVC animated:YES];
+    }
 }
 
 - (void)createButtonsOfRoutes:(TypeOfTransportEnum)typeOfTransport

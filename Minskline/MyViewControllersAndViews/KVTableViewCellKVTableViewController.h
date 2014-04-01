@@ -11,6 +11,12 @@
 #import "Stops.h"
 #import "Constants.h"
 
+@protocol KVTableViewCellKVTableViewControllerDelegate <NSObject>
+
+- (void)userClickedOnFavoriteButton:(id)cell;
+
+@end
+
 @interface KVTableViewCellKVTableViewController : UITableViewCell
 {
     @public
@@ -21,5 +27,7 @@
 @property (nonatomic, retain) UIButton *buttonFavorite;
 @property (nonatomic, retain) NSString *nameOfStop;
 @property (nonatomic, retain) NSIndexPath *indexPath;
+
+@property (nonatomic, assign) NSObject<KVTableViewCellKVTableViewControllerDelegate> *delegate;
 
 @end

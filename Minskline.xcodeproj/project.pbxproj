@@ -205,6 +205,11 @@
 		10BC494215F93E0000CA63CE /* Minskline.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 10BC494115F93E0000CA63CE /* Minskline.sqlite */; };
 		10D81FF1158BC38C000DDF8C /* ml57.png in Resources */ = {isa = PBXBuildFile; fileRef = 10D81FF0158BC38C000DDF8C /* ml57.png */; };
 		10EAD5C515A37E9A00B4F8FE /* metro_and_favorites_cell_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 10EAD5C415A37E9900B4F8FE /* metro_and_favorites_cell_selected.png */; };
+		BEA0457718EA7FB300DB333A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BEA0457618EA7FB300DB333A /* Default-568h@2x.png */; };
+		BEA0457F18EA980500DB333A /* SettingsNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA0457E18EA980500DB333A /* SettingsNavigationController.m */; };
+		BEA0458318EA9A0200DB333A /* Minskline2_0ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA0458218EA9A0200DB333A /* Minskline2_0ViewController.m */; };
+		BEA0458718EA9E7000DB333A /* minskline2.0_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BEA0458618EA9E7000DB333A /* minskline2.0_icon.png */; };
+		BEA0458918EAA46700DB333A /* Minskline2_0ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEA0458818EAA46700DB333A /* Minskline2_0ViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -401,8 +406,8 @@
 		108D851C158B9D76001DCD27 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		108D851E158B9D76001DCD27 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		108D8520158B9D76001DCD27 /* Minskline-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Minskline-Prefix.pch"; sourceTree = "<group>"; };
-		108D8521158B9D76001DCD27 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		108D8522158B9D76001DCD27 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		108D8521158B9D76001DCD27 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Minskline/AppDelegate.h; sourceTree = "<group>"; };
+		108D8522158B9D76001DCD27 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Minskline/AppDelegate.m; sourceTree = "<group>"; };
 		108D852C158B9D76001DCD27 /* MinsklineTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MinsklineTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		108D852D158B9D76001DCD27 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		108D8536158B9D76001DCD27 /* MinsklineTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MinsklineTests-Info.plist"; sourceTree = "<group>"; };
@@ -464,6 +469,13 @@
 		10BC494115F93E0000CA63CE /* Minskline.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Minskline.sqlite; sourceTree = "<group>"; };
 		10D81FF0158BC38C000DDF8C /* ml57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ml57.png; sourceTree = "<group>"; };
 		10EAD5C415A37E9900B4F8FE /* metro_and_favorites_cell_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metro_and_favorites_cell_selected.png; sourceTree = "<group>"; };
+		BEA0457618EA7FB300DB333A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		BEA0457D18EA980500DB333A /* SettingsNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsNavigationController.h; sourceTree = "<group>"; };
+		BEA0457E18EA980500DB333A /* SettingsNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsNavigationController.m; sourceTree = "<group>"; };
+		BEA0458118EA9A0200DB333A /* Minskline2_0ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Minskline2_0ViewController.h; path = Minskline2_0View/Minskline2_0ViewController.h; sourceTree = "<group>"; };
+		BEA0458218EA9A0200DB333A /* Minskline2_0ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Minskline2_0ViewController.m; path = Minskline2_0View/Minskline2_0ViewController.m; sourceTree = "<group>"; };
+		BEA0458618EA9E7000DB333A /* minskline2.0_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minskline2.0_icon.png; sourceTree = "<group>"; };
+		BEA0458818EAA46700DB333A /* Minskline2_0ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Minskline2_0ViewController.xib; path = Minskline2_0View/Minskline2_0ViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -558,6 +570,8 @@
 		103209DD158BB74C00D28E13 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				BEA0457D18EA980500DB333A /* SettingsNavigationController.h */,
+				BEA0457E18EA980500DB333A /* SettingsNavigationController.m */,
 				103209DE158BB74C00D28E13 /* SettingsScreen.h */,
 				103209DF158BB74C00D28E13 /* SettingsScreen.m */,
 				103209E0158BB74C00D28E13 /* SettingsScreen.xib */,
@@ -587,6 +601,7 @@
 		10320A11158BB7CA00D28E13 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BEA0458618EA9E7000DB333A /* minskline2.0_icon.png */,
 				10EAD5C415A37E9900B4F8FE /* metro_and_favorites_cell_selected.png */,
 				105C27E9159579720070BD67 /* time_result_cell.png */,
 				105C27E7159576F10070BD67 /* metro_and_favorites_cell.png */,
@@ -757,9 +772,12 @@
 		108D8501158B9D76001DCD27 = {
 			isa = PBXGroup;
 			children = (
+				BEA0457618EA7FB300DB333A /* Default-568h@2x.png */,
 				105C27D315954CE80070BD67 /* Default@2x.png */,
 				105C27D115954CDD0070BD67 /* Default.png */,
 				10D81FF0158BC38C000DDF8C /* ml57.png */,
+				108D8521158B9D76001DCD27 /* AppDelegate.h */,
+				108D8522158B9D76001DCD27 /* AppDelegate.m */,
 				108D8518158B9D76001DCD27 /* Minskline */,
 				108D8534158B9D76001DCD27 /* MinsklineTests */,
 				108D850F158B9D76001DCD27 /* Frameworks */,
@@ -796,8 +814,6 @@
 				108D855E158B9FDD001DCD27 /* Core */,
 				108D8554158B9F40001DCD27 /* UpdateModule */,
 				108D8546158B9E8B001DCD27 /* NSManagedObjects */,
-				108D8521158B9D76001DCD27 /* AppDelegate.h */,
-				108D8522158B9D76001DCD27 /* AppDelegate.m */,
 				108D8519158B9D76001DCD27 /* Supporting Files */,
 			);
 			path = Minskline;
@@ -892,6 +908,7 @@
 		108D8577158BA09B001DCD27 /* MyViewControllersAndViews */ = {
 			isa = PBXGroup;
 			children = (
+				BEA0458018EA99A300DB333A /* Minskline2_0View */,
 				108D8578158BA09B001DCD27 /* drawing.m */,
 				108D8579158BA09B001DCD27 /* KVTableViewCellKVTableViewController.h */,
 				108D857A158BA09B001DCD27 /* KVTableViewCellKVTableViewController.m */,
@@ -926,6 +943,16 @@
 				10BC494115F93E0000CA63CE /* Minskline.sqlite */,
 			);
 			name = Database;
+			sourceTree = "<group>";
+		};
+		BEA0458018EA99A300DB333A /* Minskline2_0View */ = {
+			isa = PBXGroup;
+			children = (
+				BEA0458118EA9A0200DB333A /* Minskline2_0ViewController.h */,
+				BEA0458218EA9A0200DB333A /* Minskline2_0ViewController.m */,
+				BEA0458818EAA46700DB333A /* Minskline2_0ViewController.xib */,
+			);
+			name = Minskline2_0View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1001,6 +1028,7 @@
 				108D851D158B9D76001DCD27 /* InfoPlist.strings in Resources */,
 				108D8596158BA09B001DCD27 /* KVTableViewCellRoutes.xib in Resources */,
 				103209EF158BB74C00D28E13 /* AboutScreen.xib in Resources */,
+				BEA0458718EA9E7000DB333A /* minskline2.0_icon.png in Resources */,
 				103209F4158BB74C00D28E13 /* FirstScreen.xib in Resources */,
 				103209F6158BB74C00D28E13 /* FourthScreen.xib in Resources */,
 				103209F8158BB74C00D28E13 /* ScheduleNavigationController.xib in Resources */,
@@ -1010,6 +1038,7 @@
 				10320A02158BB74C00D28E13 /* FromToNavigationController.xib in Resources */,
 				10320A04158BB74C00D28E13 /* ResultScreen.xib in Resources */,
 				10320A06158BB74C00D28E13 /* ToScreen.xib in Resources */,
+				BEA0458918EAA46700DB333A /* Minskline2_0ViewController.xib in Resources */,
 				10320A08158BB74C00D28E13 /* SettingsScreen.xib in Resources */,
 				10320A0A158BB74C00D28E13 /* DirectionsScreen.xib in Resources */,
 				10320A0C158BB74C00D28E13 /* ResultScreen2.xib in Resources */,
@@ -1091,6 +1120,7 @@
 				10320ACD158BB7CA00D28E13 /* schedule_tab_bar_icon.png in Resources */,
 				10320ACE158BB7CA00D28E13 /* settings_icon.png in Resources */,
 				10320ACF158BB7CA00D28E13 /* to_icon.png in Resources */,
+				BEA0457718EA7FB300DB333A /* Default-568h@2x.png in Resources */,
 				10320AD0158BB7CA00D28E13 /* Tarkett_salsa_ash_musckat.jpg in Resources */,
 				10320AD1158BB7CA00D28E13 /* test_for_tab_bar.png in Resources */,
 				10320AD2158BB7CA00D28E13 /* top_border.png in Resources */,
@@ -1209,6 +1239,7 @@
 				103209F5158BB74C00D28E13 /* FourthScreen.m in Sources */,
 				103209F7158BB74C00D28E13 /* ScheduleNavigationController.m in Sources */,
 				103209FB158BB74C00D28E13 /* SecondScreen.m in Sources */,
+				BEA0457F18EA980500DB333A /* SettingsNavigationController.m in Sources */,
 				103209FD158BB74C00D28E13 /* ThirdScreen.m in Sources */,
 				103209FF158BB74C00D28E13 /* FromScreen.m in Sources */,
 				10320A01158BB74C00D28E13 /* FromToNavigationController.m in Sources */,
@@ -1218,6 +1249,7 @@
 				10320A09158BB74C00D28E13 /* DirectionsScreen.m in Sources */,
 				10320A0B158BB74C00D28E13 /* ResultScreen2.m in Sources */,
 				10320A0D158BB74C00D28E13 /* StopsNavigationController.m in Sources */,
+				BEA0458318EA9A0200DB333A /* Minskline2_0ViewController.m in Sources */,
 				10320A0F158BB74C00D28E13 /* StopsScreen.m in Sources */,
 				105C27D0159523C50070BD67 /* PrettyViews.m in Sources */,
 			);
@@ -1266,8 +1298,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Vasil Kasnitski (FNQWCWZDZ8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vasil Kasnitski (FNQWCWZDZ8)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1282,8 +1312,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				PROVISIONING_PROFILE = "F654F0DC-D1D1-4A82-B618-38A03CE1DEDE";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F654F0DC-D1D1-4A82-B618-38A03CE1DEDE";
+				PROVISIONING_PROFILE = "C2E7DB2A-32A1-4690-9690-568479E5C8E4";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1293,8 +1322,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Vasil Kasnitski (FNQWCWZDZ8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vasil Kasnitski (FNQWCWZDZ8)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1303,8 +1330,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "F654F0DC-D1D1-4A82-B618-38A03CE1DEDE";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F654F0DC-D1D1-4A82-B618-38A03CE1DEDE";
+				PROVISIONING_PROFILE = "AB468E97-CBB0-48FA-A0AA-7AFE26C72CB4";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1313,15 +1339,11 @@
 		108D8540158B9D76001DCD27 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Vasil Kasnitski (FNQWCWZDZ8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vasil Kasnitski (FNQWCWZDZ8)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Minskline/Minskline-Prefix.pch";
 				INFOPLIST_FILE = "Minskline/Minskline-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "F654F0DC-D1D1-4A82-B618-38A03CE1DEDE";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F654F0DC-D1D1-4A82-B618-38A03CE1DEDE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1329,15 +1351,11 @@
 		108D8541158B9D76001DCD27 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Vasil Kasnitski (FNQWCWZDZ8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vasil Kasnitski (FNQWCWZDZ8)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Minskline/Minskline-Prefix.pch";
 				INFOPLIST_FILE = "Minskline/Minskline-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "F654F0DC-D1D1-4A82-B618-38A03CE1DEDE";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F654F0DC-D1D1-4A82-B618-38A03CE1DEDE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1376,6 +1394,54 @@
 			};
 			name = Release;
 		};
+		BEA0458A18EAAAB900DB333A /* AppStore */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "F2D8749E-FE4F-405D-A222-A83152819DC8";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = AppStore;
+		};
+		BEA0458B18EAAAB900DB333A /* AppStore */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Minskline/Minskline-Prefix.pch";
+				INFOPLIST_FILE = "Minskline/Minskline-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = AppStore;
+		};
+		BEA0458C18EAAAB900DB333A /* AppStore */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Minskline.app/Minskline";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Minskline/Minskline-Prefix.pch";
+				INFOPLIST_FILE = "MinsklineTests/MinsklineTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = AppStore;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1384,6 +1450,7 @@
 			buildConfigurations = (
 				108D853D158B9D76001DCD27 /* Debug */,
 				108D853E158B9D76001DCD27 /* Release */,
+				BEA0458A18EAAAB900DB333A /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1393,6 +1460,7 @@
 			buildConfigurations = (
 				108D8540158B9D76001DCD27 /* Debug */,
 				108D8541158B9D76001DCD27 /* Release */,
+				BEA0458B18EAAAB900DB333A /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1402,6 +1470,7 @@
 			buildConfigurations = (
 				108D8543158B9D76001DCD27 /* Debug */,
 				108D8544158B9D76001DCD27 /* Release */,
+				BEA0458C18EAAAB900DB333A /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

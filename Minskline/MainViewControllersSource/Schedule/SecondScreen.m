@@ -22,15 +22,6 @@ static NSInteger imageWidth = 77;
 
 @synthesize tableViewRoutes, imageView, navBar;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)dealloc
 {
     self.tableViewRoutes = nil;
@@ -40,14 +31,6 @@ static NSInteger imageWidth = 77;
     [differentRoutes release];
     [differentRoutesFull release];
     [super dealloc];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
 }
 
 #pragma mark - View lifecycle
@@ -75,12 +58,9 @@ static NSInteger imageWidth = 77;
 	headerLabel.shadowOffset = CGSizeMake(0, 1);
 	headerLabel.font = [UIFont boldSystemFontOfSize:26];
 	headerLabel.backgroundColor = [UIColor clearColor];
-//	[containerView addSubview:headerLabel];
     self.tableViewRoutes.tableHeaderView = containerView;
     self.tableViewRoutes.tableFooterView = containerView2;
     
-//    NSIndexPath *indexPath=[NSIndexPath indexPathForRow:0 inSection:0];
-//    [tableViewRoutes selectRowAtIndexPath:indexPath animated:YES  scrollPosition:UITableViewScrollPositionBottom];
     UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Домой" style:UIBarButtonItemStyleBordered target:self action:@selector(goToHome:)];          
     self.navigationItem.rightBarButtonItem = anotherButton;
     [anotherButton release];
@@ -96,42 +76,16 @@ static NSInteger imageWidth = 77;
     return 125.0f;
 }
 
-- (void)viewDidUnload
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-//{
-//    // Return YES for supported orientations
-//    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-//}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-	// The number of sections is the same as the number of titles in the collation.
     return 1;
 }
 
-// Customize the number of rows in the table view.
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	// The number of stops in the section is the count of the array associated with the section in the sections array.
-    
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return countOfItemsInTable;
 }
 
-//- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return YES;
-//}
-
-//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath 
-//{
-//    
-//}
-
-// Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *CellIdentifier = @"Cell";
@@ -140,12 +94,9 @@ static NSInteger imageWidth = 77;
     if (cell == nil) {
         // Create the cell
         cell = [[[KVTableViewCellSecondScreen alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier: CellIdentifier] autorelease];
-
-//        UIImage *indicatorImage = [UIImage imageNamed:@"indicator.png"];
-//        cell.accessoryView = [[[UIImageView alloc] initWithImage:indicatorImage] autorelease];
-        
-        [cell.buttonFavorite addTarget:self action:@selector(buttonClickOnIsFavorite:) forControlEvents:UIControlEventTouchUpInside];
+//        [cell.buttonFavorite addTarget:self action:@selector(buttonClickOnIsFavorite:) forControlEvents:UIControlEventTouchUpInside];
 	}
+    cell.delegate = self;
     
     Routes *route = ((Routes *)[differentRoutesFull objectAtIndex:indexPath.row]);
     NSNumber *numberIsFavorite = route.isSelected;
@@ -326,7 +277,6 @@ static NSInteger imageWidth = 77;
     if (!isDeleteCell) {
         [tableViewRoutes reloadData];
     }
-    
 }
 
 -(TypeOfTransportEnum)getTypeOfTransportByString:(NSString *)stringFromFavorite
@@ -344,6 +294,39 @@ static NSInteger imageWidth = 77;
         return METRO;
     }
     return FAVORITIES;
+}
+
+
+#pragma mark - @protocol KVTableViewCellSecondScreenDelegate <NSObject>
+
+- (void)userClickedOnFavoriteButton:(id)sender
+{
+    KVTableViewCellSecondScreen *cell = (KVTableViewCellSecondScreen *)sender;
+    
+    Routes *routeFromCell = cell.routeToCell;
+    
+    BOOL isFavoriteCell = cell->isFavorite;
+    UIImage *imageFavoriteOn = [UIImage imageNamed:IMAGE_FAVORITE_SELECTED];
+    UIImage *imageFavoriteOff = [UIImage imageNamed:IMAGE_FAVORITE_NON_SELECTED];
+    UIImage *imageToCell = (isFavoriteCell == YES) ? imageFavoriteOff : imageFavoriteOn;
+    [cell.buttonFavorite setBackgroundImage:imageToCell forState:UIControlStateNormal];
+    isFavoriteCell = !isFavoriteCell;
+    routeFromCell.isSelected = [NSNumber numberWithInt:isFavoriteCell];
+    
+    AllRoutesAndStops *aRAS = [AllRoutesAndStops sharedMySingleton];
+    [aRAS setIsFavorite:routeFromCell];
+    //    routeFromCell.isSelected = [NSNumber numberWithInt: cell->isFavorite];
+    cell->isFavorite = isFavoriteCell;
+    
+    TypeOfTransportEnum typeOfTransport = [FullInfoAboutRoute sharedMySingleton].typeOfTransport;
+    if (typeOfTransport == FAVORITIES) {
+        countOfItemsInTable--;
+        NSIndexPath *indexPath = cell.indexPath;
+        [tableViewRoutes beginUpdates];
+        [tableViewRoutes deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationTop];
+        [tableViewRoutes endUpdates];
+        [self reloadData:NO];
+    }
 }
 
 @end

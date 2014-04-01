@@ -21,14 +21,6 @@
     [super dealloc];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-
 #pragma mark - View lifecycle
 
 - (void)getLastDateUpdate
@@ -72,10 +64,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationBar.topItem.title= @"Настройки";
-    UILabel *label = [PrettyViews labelToNavigationBarWithTitle:@"Настройки"];
-    self.navigationBar.topItem.titleView = label;
-    self.navigationBar.tintColor = NAV_BAR_COLOR;
     
     settings = [SettingsOfMinsktrans sharedMySingleton];
     
@@ -112,24 +100,6 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
-}
-
-- (id)init
-{
-    // Get the tab bar item
-    UITabBarItem *tbi = [self tabBarItem];
-    
-    // Give it a label
-    [tbi setTitle:@"Настройки"];
-    
-    
-    // Create a UIImage from a file
-    UIImage *icon = [UIImage imageNamed:@"settings_tab_bar_icon.png"];
-    
-    // Put that image on the tabBarItem
-    [tbi setImage:icon];
-    
-    return self = [super init];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
